@@ -1,0 +1,10 @@
+# ignore hidden files and directories in root directory, except this file
+.*
+!.gitignore
+
+# ignore local files
+configs/*
+
+# ignore generated/temp files
+*.pyc
+*.DS_Store
