@@ -6,8 +6,8 @@ import sys
 import os
 import glob
 
-from configs.config_querries import DATABASE
-from configs.config_querries import SQL_DIRECTORY
+from configs.config_queries import DATABASE
+from configs.config_queries import SQL_DIRECTORY
 
 def find_sqls(directory):
     os.chdir(directory)
