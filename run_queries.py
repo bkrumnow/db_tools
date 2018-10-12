@@ -9,21 +9,26 @@ import glob
 from configs.config_queries import DATABASE
 from configs.config_queries import SQL_DIRECTORY
 
+from errros import FilesNotFoundException
+
 def find_sqls(directory):
     os.chdir(directory)
-    return glob.glob("*.sql")
+    res = glob.glob("*.sql")
+    if len(res) == 0:
+        raise FilesNotFoundException("Folder does not cointain any *.sql files")
+    return res
     
 def create_statistic():
     """ Executes and prints all queries
     """
     files = find_sqls(SQL_DIRECTORY)
+
     con = None
     con = database_connect(DATABASE)
     cur = con.cursor()
     for name in files:
         with open(os.path.join(SQL_DIRECTORY, name), "r") as f:
             script = f.read()
-            print(script)
             execute_query(cur, name, script)
     if con:
         con.close()
@@ -43,7 +48,7 @@ def execute_query(cursor, name, script):
         for row in cursor.execute(script):
             print("{} --> {}".format(name, row))
     except sqlite3.Error as e:
-        print("ERROR: {}".format(e))
+        print("ERROR in {}: {}".format(name, e))
         
 if __name__ == '__main__':
     create_statistic()
