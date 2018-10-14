@@ -4,10 +4,10 @@ import csv
 import sqlite3
 import sys
 
-from configs.db_merge import SOURCE_DATABASES
-from configs.db_merge import DATABASE
-from configs.db_merge import CREATE_STATEMENTS
-from configs.db_merge import INSERT_STATEMENTS
+from configs.config_db_merge import SOURCE_DATABASES
+from configs.config_db_merge import OUTPUT_DATABASE
+from configs.config_db_merge import CREATE_STATEMENTS
+from configs.config_db_merge import INSERT_STATEMENTS
 
 
 def start():
