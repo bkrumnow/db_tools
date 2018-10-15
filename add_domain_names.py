@@ -7,8 +7,8 @@ import os
 import glob
 import tldextract as tld
 
-from configs.config_db_merge import OUTPUT_DATABASE
-TABLE_CHANGES = [{"table_name":"Scripts", "column_name":"domain_name", "url_column_name":"URL", "counter":3}]
+from configs.config_add_domains import OUTPUT_DATABASE
+from configs.config_add_domains import TABLE_CHANGES
     
 def modify_dataset():
     """ Executes and prints all queries
