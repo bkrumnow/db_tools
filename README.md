@@ -10,3 +10,4 @@ It is recommended to use tools to manage the version of python libraries, such a
 # Tools #
 * db_merge: Creates a new database with all given databases (which contain the same column names)
 * run_queries: Takes all *.sql files from a server and executes the containing sql queries for a given database
+* add_domain_names: Alters tables and appends a new column with domains which can be derived from a column with urls
